@@ -14,6 +14,6 @@ public class Test_GoibiboQuickLaunch extends BaseTest {
 
 		
 		//Validation page title
-		Assert.assertTrue(false, null);
+		Assert.assertTrue(driver.getTitle().toLowerCase().contains("goibibo"), "Page title does not contain 'Goibibo'");
 	}
 }
