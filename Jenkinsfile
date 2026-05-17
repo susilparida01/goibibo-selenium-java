@@ -38,11 +38,15 @@ pipeline {
 
     post {
         always {
-            // Publish TestNG Results
-            junit testResults: '**/target/surefire-reports/TEST-*.xml', allowEmptyResults: true
+            // Publish TestNG/Surefire Results
+            // Includes both TEST-*.xml (Surefire) and testng-results.xml (TestNG)
+            junit testResults: '**/target/surefire-reports/*.xml', allowEmptyResults: true
 
-            // Archive Extent Reports and Screenshots for viewing in Jenkins
-            archiveArtifacts artifacts: 'target/extent/*.html, target/screenshots/*.png', allowEmptyArchive: true
+            // Archive Extent Reports, Screenshots, and Page Sources for viewing in Jenkins
+            archiveArtifacts artifacts: 'target/extent/*.html, target/screenshots/*', allowEmptyArchive: true
+            
+            // Note: If you have the 'HTML Publisher' plugin, you can also add:
+            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'target/extent', reportFiles: '*.html', reportName: 'Extent Report'])
         }
     }
 }
