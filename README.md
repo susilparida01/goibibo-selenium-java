@@ -21,6 +21,16 @@ To run the tests, use the following Maven command:
 mvn test
 ```
 
+## Test Cases
+
+- `Test_GoibiboQuickLaunch`: Validates that the Goibibo homepage is successfully launched and the title is correct.
+- `Test_GoibiboFlightBooking`: An end-to-end test case covering:
+    - Searching for flights with source, destination, and travel details.
+    - Selecting a flight from the results.
+    - Entering passenger details.
+    - Navigating through a dummy payment process.
+    - Verifying the booking flow.
+
 ## Project Structure
 
 - `src/main/java`: Contains the Page Object Model (POM) classes and utility classes.

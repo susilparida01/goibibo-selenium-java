@@ -35,7 +35,11 @@ public class BasePage {
 	public void typeText(WebElement element, String text) {
 		waitForVisibility(element);
 		Log.step("Type: '" + text + "' into "+ debugName(element));
-		element.clear();
+		try {
+			element.clear();
+		} catch (Exception e) {
+			Log.step("Could not clear element: " + e.getMessage());
+		}
 		element.sendKeys(text);
 	}
 	
