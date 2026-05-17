@@ -26,6 +26,8 @@ public class DriverFactory {
 			ChromeOptions co = new ChromeOptions();
 			if (headless) co.addArguments("--headless=new");
 			co.addArguments("--start-maximized");
+			co.addArguments("--disable-blink-features=AutomationControlled");
+			co.addArguments("--incognito");
 			tlDriver.set(new ChromeDriver(co));
 			break;
 		

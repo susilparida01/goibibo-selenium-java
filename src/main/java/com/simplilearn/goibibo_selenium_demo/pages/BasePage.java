@@ -80,7 +80,7 @@ public class BasePage {
 			click(element);
 		}catch(ElementClickInterceptedException e){
 			
-			((JavascriptExecutor) driver).executeScript("argument[0].click();", element);	
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);	
 		}
 	}
 	
